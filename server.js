@@ -28,6 +28,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/add-user", (req, res) => {
+  res.render("add_user");
+});
+
+app.get("/update-user", (req, res) => {
+  res.render("update_user");
+});
+
 app.listen(3333, () => {
   console.log(`Server started on port  http://localhost:${PORT} ✔✔✔`);
 });
