@@ -15,7 +15,7 @@ export const create = (req, res) => {
     email: req.body.email,
     cpf: req.body.cpf,
     status: req.body.status,
-    birthday: moment(req.body.birthday, "DD-MM-YYYY").format("DD/MM/YYYY"),
+    birthday: moment(req.body.birthday, "mm/dd/yyyy").format("DD/MM/YYYY"),
   });
   //console.log(user.birthday);
 
@@ -23,8 +23,8 @@ export const create = (req, res) => {
   user
     .save(user)
     .then((data) => {
-      // res.redirect("/");
-      res.send(data);
+      res.redirect("/add-user");
+      //res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
