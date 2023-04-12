@@ -25,7 +25,7 @@ app.use("/img", express.static(path.resolve(__dirname, "assets/img"))); // IMG
 app.use("/js", express.static(path.resolve(__dirname, "assets/js"))); // JS
 
 app.get("/", (req, res) => {
-  res.send("Teste app");
+  res.render("index");
 });
 
 app.listen(3333, () => {
