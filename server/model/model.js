@@ -16,11 +16,13 @@ let schema = new mongoose.Schema({
     required: [true, "O CPF é obrigatório"],
   },
   status: String,
-  dataNascimento: {
+  birthday: {
     type: Date,
-    default: Date.now,
+    required: [true, "A data de nascimento é obrigatória"],
   },
 });
+
+
 
 const Userdb = mongoose.model("userdb", schema);
 
