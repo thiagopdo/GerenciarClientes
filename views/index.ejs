@@ -10,13 +10,15 @@
           <span class="text-gradient">Novo Cliente <i class="fas fa-user-plus"></i></span>
         </a>
       </div>
-      <div class="box-nav d-flex justify-between">
-        <a href="/add-user" class="border-shadow">
-          <span class="text-gradient">Importar Dados <i class="fa-solid fa-users"></i></span>
-        </a>
-      </div>
-
       <!-- formulario -->
+      <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label for="csvfile">Escolha um arquivo CSV:</label>
+        <input type="file" name="csvfile" id="csvfile" class="input-file" />
+        <label for="csvfile" class="input-file-label">Selecionar arquivo</label>
+        <button type="submit">Enviar</button>
+      </form>
+
+
       <form action="/" method="POST">
         <table class="table">
           <thead class="thead-dark">

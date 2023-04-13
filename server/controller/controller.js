@@ -1,5 +1,6 @@
 import Userdb from "../model/model.js";
 import moment from "moment/moment.js";
+import multer from "multer";
 
 // criar e salvar novo cliente
 export const create = (req, res) => {
@@ -113,3 +114,13 @@ export const remove = (req, res) => {
       });
     });
 };
+
+export const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });

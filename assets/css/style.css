@@ -181,6 +181,21 @@ table {
   margin: 1em 1em;
 }
 
+/* importar arquivo */
+
+.input-file {
+  display: none;
+}
+.input-file-label {
+  background-color: #06d6a0;
+  color: var(--dark);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
 /* botoes radio */
 .radio input[type="radio"] {
   position: absolute;

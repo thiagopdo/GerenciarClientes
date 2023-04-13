@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 import path from "path";
 import router from "./server/routes/router.js";
 import connectDB from "./server/database/connection.js";
+import csv from "csv-parser";
+import fs from "fs";
 
 const app = express();
 
@@ -29,6 +31,20 @@ app.use("/img", express.static(path.resolve(__dirname, "assets/img"))); // IMG
 app.use("/js", express.static(path.resolve(__dirname, "assets/js"))); // JS
 
 app.use("/", router); // Rotas
+
+app.post("/upload", (req, res) => {
+  const results = [];
+  fs.createReadStream(req.file.path)
+    .pipe(csv())
+    .on("data", (data) => {
+      results.push(data);
+    })
+    .on("end", () => {
+      console.log(results);
+      // Salvar dados no banco de dados
+      res.redirect("/"); // Redirecionar para a página inicial após a importação
+    });
+});
 
 app.listen(3333, () => {
   console.log(`Server started on port  http://localhost:${PORT} ✔✔✔`);
