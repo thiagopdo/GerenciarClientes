@@ -3,7 +3,9 @@ teste para vaga de devJr-softskills
 
 Passo 1: npm install
 Passo 2: npm run start
-para verificar o proejto localmente
+para verificar o projeto localmente
+
+Foi deixado o config.env propositalmente para fins de testes
 
 
 Projeto feito com NodeJS, ExpressJS, MongoDB, Mongoose e template EJS. Type = module
